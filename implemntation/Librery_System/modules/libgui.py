@@ -12,16 +12,40 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
+import modules.resources_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1000, 700)
-        MainWindow.setMinimumSize(QSize(1000, 700))
-        MainWindow.setStyleSheet(u"background-color: rgb(46, 52, 54);")
+        MainWindow.resize(1007, 700)
+        MainWindow.setMinimumSize(QSize(45, 700))
+        MainWindow.setStyleSheet(u"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
+        self.centralwidget.setStyleSheet(u"\n"
+"QFrame>QPushButton{\n"
+"    background-position:  left center;\n"
+"    background-repeat: no-repeat;\n"
+"	border: none;\n"
+"	border-left: 18px solid transparent ;\n"
+"	background-color: rgb(255, 0, 0);\n"
+"	text-align: left;\n"
+"	padding-left: 48px;	\n"
+"\n"
+"}\n"
+"/*\n"
+"//////////////////*/\n"
+"#top_bar:hover{\n"
+"background-color: rgb(46, 52, 54) ;\n"
+"}\n"
+" #centralwidget *{\n"
+"background-color: rgb(46, 52, 54);\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -40,32 +64,6 @@ class Ui_MainWindow(object):
         self.frame_top.setMaximumSize(QSize(400, 40))
         self.frame_top.setFrameShape(QFrame.NoFrame)
         self.frame_top.setFrameShadow(QFrame.Raised)
-        self.frame_toggle = QFrame(self.topbar)
-        self.frame_toggle.setObjectName(u"frame_toggle")
-        self.frame_toggle.setGeometry(QRect(0, 0, 70, 40))
-        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.frame_toggle.sizePolicy().hasHeightForWidth())
-        self.frame_toggle.setSizePolicy(sizePolicy)
-        self.frame_toggle.setMinimumSize(QSize(0, 0))
-        self.frame_toggle.setMaximumSize(QSize(70, 40))
-        self.frame_toggle.setStyleSheet(u"background-color: rgb(114, 159, 207);")
-        self.frame_toggle.setFrameShape(QFrame.NoFrame)
-        self.frame_toggle.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_2 = QVBoxLayout(self.frame_toggle)
-        self.verticalLayout_2.setSpacing(0)
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.menu_toggle_btn = QPushButton(self.frame_toggle)
-        self.menu_toggle_btn.setObjectName(u"menu_toggle_btn")
-        self.menu_toggle_btn.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-"background-color: rgb(114, 159, 207);\n"
-"border:0px solid;")
-        self.menu_toggle_btn.setFlat(True)
-
-        self.verticalLayout_2.addWidget(self.menu_toggle_btn)
-
 
         self.verticalLayout.addWidget(self.topbar)
 
@@ -79,25 +77,30 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.frame_left_menu = QFrame(self.content)
         self.frame_left_menu.setObjectName(u"frame_left_menu")
-        self.frame_left_menu.setMinimumSize(QSize(70, 0))
-        self.frame_left_menu.setMaximumSize(QSize(70, 16777215))
+        self.frame_left_menu.setMinimumSize(QSize(60, 0))
+        self.frame_left_menu.setMaximumSize(QSize(60, 16777215))
         self.frame_left_menu.setStyleSheet(u"background-color: rgb(35, 35, 35);")
         self.frame_left_menu.setFrameShape(QFrame.NoFrame)
         self.frame_left_menu.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_3 = QVBoxLayout(self.frame_left_menu)
-        self.verticalLayout_3.setSpacing(6)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_2 = QVBoxLayout(self.frame_left_menu)
+        self.verticalLayout_2.setSpacing(0)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.frame_menus = QFrame(self.frame_left_menu)
         self.frame_menus.setObjectName(u"frame_menus")
+        self.frame_menus.setStyleSheet(u"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(46, 52, 54);\n"
+"}")
         self.frame_menus.setFrameShape(QFrame.NoFrame)
         self.frame_menus.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_4 = QVBoxLayout(self.frame_menus)
-        self.verticalLayout_4.setSpacing(30)
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.btn_page1 = QPushButton(self.frame_menus)
-        self.btn_page1.setObjectName(u"btn_page1")
-        self.btn_page1.setMinimumSize(QSize(0, 40))
+        self.verticalLayout_3 = QVBoxLayout(self.frame_menus)
+        self.verticalLayout_3.setSpacing(0)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.menu_toggle = QPushButton(self.frame_menus)
+        self.menu_toggle.setObjectName(u"menu_toggle")
+        self.menu_toggle.setMinimumSize(QSize(0, 45))
         palette = QPalette()
         brush = QBrush(QColor(255, 255, 255, 255))
         brush.setStyle(Qt.SolidPattern)
@@ -136,24 +139,17 @@ class Ui_MainWindow(object):
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush4)
 #endif
-        self.btn_page1.setPalette(palette)
-        self.btn_page1.setStyleSheet(u"QPushButton{\n"
-"border:0px solid;\n"
-"color:rgb(255,255,255);\n"
-"background-color: rgb(35, 35, 35);\n"
-"}\n"
-"QPushButton:Hover{\n"
-"background-color: rgb(85, 170, 255);\n"
-"}")
-        self.btn_page1.setCheckable(False)
-        self.btn_page1.setAutoDefault(False)
-        self.btn_page1.setFlat(False)
+        self.menu_toggle.setPalette(palette)
+        self.menu_toggle.setStyleSheet(u"background-image: url(:/icons/icons/menu.png);")
+        self.menu_toggle.setCheckable(False)
+        self.menu_toggle.setAutoDefault(False)
+        self.menu_toggle.setFlat(False)
 
-        self.verticalLayout_4.addWidget(self.btn_page1)
+        self.verticalLayout_3.addWidget(self.menu_toggle)
 
-        self.btn_page2 = QPushButton(self.frame_menus)
-        self.btn_page2.setObjectName(u"btn_page2")
-        self.btn_page2.setMinimumSize(QSize(0, 40))
+        self.home_btn = QPushButton(self.frame_menus)
+        self.home_btn.setObjectName(u"home_btn")
+        self.home_btn.setMinimumSize(QSize(0, 45))
         palette1 = QPalette()
         palette1.setBrush(QPalette.Active, QPalette.WindowText, brush)
         palette1.setBrush(QPalette.Active, QPalette.Button, brush1)
@@ -188,24 +184,17 @@ class Ui_MainWindow(object):
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette1.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush7)
 #endif
-        self.btn_page2.setPalette(palette1)
-        self.btn_page2.setStyleSheet(u"QPushButton{\n"
-"border:0px solid;\n"
-"color:rgb(255,255,255);\n"
-"background-color: rgb(35, 35, 35);\n"
-"}\n"
-"QPushButton:Hover{\n"
-"background-color: rgb(85, 170, 255);\n"
-"}")
-        self.btn_page2.setCheckable(False)
-        self.btn_page2.setAutoDefault(False)
-        self.btn_page2.setFlat(False)
+        self.home_btn.setPalette(palette1)
+        self.home_btn.setStyleSheet(u"background-image: url(:/icons/icons/icons8-home-24.png);")
+        self.home_btn.setCheckable(False)
+        self.home_btn.setAutoDefault(False)
+        self.home_btn.setFlat(False)
 
-        self.verticalLayout_4.addWidget(self.btn_page2)
+        self.verticalLayout_3.addWidget(self.home_btn)
 
-        self.btn_page3 = QPushButton(self.frame_menus)
-        self.btn_page3.setObjectName(u"btn_page3")
-        self.btn_page3.setMinimumSize(QSize(0, 40))
+        self.search_btn = QPushButton(self.frame_menus)
+        self.search_btn.setObjectName(u"search_btn")
+        self.search_btn.setMinimumSize(QSize(0, 45))
         palette2 = QPalette()
         palette2.setBrush(QPalette.Active, QPalette.WindowText, brush)
         palette2.setBrush(QPalette.Active, QPalette.Button, brush1)
@@ -240,23 +229,61 @@ class Ui_MainWindow(object):
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette2.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush10)
 #endif
-        self.btn_page3.setPalette(palette2)
-        self.btn_page3.setStyleSheet(u"QPushButton{\n"
-"border:0px solid;\n"
-"color:rgb(255,255,255);\n"
-"background-color: rgb(35, 35, 35);\n"
-"}\n"
-"QPushButton:Hover{\n"
-"background-color: rgb(85, 170, 255);\n"
-"}")
-        self.btn_page3.setCheckable(False)
-        self.btn_page3.setAutoDefault(False)
-        self.btn_page3.setFlat(False)
+        self.search_btn.setPalette(palette2)
+        self.search_btn.setStyleSheet(u"background-image: url(:/icons/icons/icons8-search-24.png);")
+        self.search_btn.setCheckable(False)
+        self.search_btn.setAutoDefault(False)
+        self.search_btn.setFlat(False)
 
-        self.verticalLayout_4.addWidget(self.btn_page3)
+        self.verticalLayout_3.addWidget(self.search_btn)
+
+        self.wishlist_btn = QPushButton(self.frame_menus)
+        self.wishlist_btn.setObjectName(u"wishlist_btn")
+        self.wishlist_btn.setMinimumSize(QSize(0, 45))
+        palette3 = QPalette()
+        palette3.setBrush(QPalette.Active, QPalette.WindowText, brush)
+        palette3.setBrush(QPalette.Active, QPalette.Button, brush1)
+        palette3.setBrush(QPalette.Active, QPalette.Text, brush)
+        palette3.setBrush(QPalette.Active, QPalette.ButtonText, brush)
+        palette3.setBrush(QPalette.Active, QPalette.Base, brush1)
+        palette3.setBrush(QPalette.Active, QPalette.Window, brush1)
+        brush11 = QBrush(QColor(255, 255, 255, 128))
+        brush11.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette3.setBrush(QPalette.Active, QPalette.PlaceholderText, brush11)
+#endif
+        palette3.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
+        palette3.setBrush(QPalette.Inactive, QPalette.Button, brush1)
+        palette3.setBrush(QPalette.Inactive, QPalette.Text, brush)
+        palette3.setBrush(QPalette.Inactive, QPalette.ButtonText, brush)
+        palette3.setBrush(QPalette.Inactive, QPalette.Base, brush1)
+        palette3.setBrush(QPalette.Inactive, QPalette.Window, brush1)
+        brush12 = QBrush(QColor(255, 255, 255, 128))
+        brush12.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette3.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush12)
+#endif
+        palette3.setBrush(QPalette.Disabled, QPalette.WindowText, brush)
+        palette3.setBrush(QPalette.Disabled, QPalette.Button, brush1)
+        palette3.setBrush(QPalette.Disabled, QPalette.Text, brush)
+        palette3.setBrush(QPalette.Disabled, QPalette.ButtonText, brush)
+        palette3.setBrush(QPalette.Disabled, QPalette.Base, brush1)
+        palette3.setBrush(QPalette.Disabled, QPalette.Window, brush1)
+        brush13 = QBrush(QColor(255, 255, 255, 128))
+        brush13.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette3.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush13)
+#endif
+        self.wishlist_btn.setPalette(palette3)
+        self.wishlist_btn.setStyleSheet(u"background-image: url(:/icons/icons/icons8-bookmark-24.png);")
+        self.wishlist_btn.setCheckable(False)
+        self.wishlist_btn.setAutoDefault(False)
+        self.wishlist_btn.setFlat(False)
+
+        self.verticalLayout_3.addWidget(self.wishlist_btn)
 
 
-        self.verticalLayout_3.addWidget(self.frame_menus, 0, Qt.AlignTop)
+        self.verticalLayout_2.addWidget(self.frame_menus, 0, Qt.AlignTop)
 
 
         self.horizontalLayout.addWidget(self.frame_left_menu)
@@ -288,12 +315,16 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.content)
 
         MainWindow.setCentralWidget(self.centralwidget)
+        QWidget.setTabOrder(self.menu_toggle, self.home_btn)
+        QWidget.setTabOrder(self.home_btn, self.search_btn)
+        QWidget.setTabOrder(self.search_btn, self.wishlist_btn)
 
         self.retranslateUi(MainWindow)
 
-        self.btn_page1.setDefault(False)
-        self.btn_page2.setDefault(False)
-        self.btn_page3.setDefault(False)
+        self.menu_toggle.setDefault(False)
+        self.home_btn.setDefault(False)
+        self.search_btn.setDefault(False)
+        self.wishlist_btn.setDefault(False)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -301,9 +332,9 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"library", None))
-        self.menu_toggle_btn.setText(QCoreApplication.translate("MainWindow", u"Toggle", None))
-        self.btn_page1.setText(QCoreApplication.translate("MainWindow", u"Menu 1", None))
-        self.btn_page2.setText(QCoreApplication.translate("MainWindow", u"Menu 2", None))
-        self.btn_page3.setText(QCoreApplication.translate("MainWindow", u"Menu 3", None))
+        self.menu_toggle.setText(QCoreApplication.translate("MainWindow", u"Menu", None))
+        self.home_btn.setText(QCoreApplication.translate("MainWindow", u"Home", None))
+        self.search_btn.setText(QCoreApplication.translate("MainWindow", u"Search", None))
+        self.wishlist_btn.setText(QCoreApplication.translate("MainWindow", u"Search", None))
     # retranslateUi
 
