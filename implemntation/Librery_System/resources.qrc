@@ -1,7 +1,8 @@
 <RCC>
   <qresource prefix="icons">
-    <file>icons/icons8-search-24.png</file>
     <file>icons/icons8-bookmark-24.png</file>
+    <file>icons/icons8-search-16.png</file>
+    <file>icons/icons8-search-24.png</file>
     <file>icons/icons8-home-24.png</file>
     <file>icons/menu.png</file>
   </qresource>

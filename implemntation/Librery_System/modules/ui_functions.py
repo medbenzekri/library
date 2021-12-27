@@ -1,7 +1,7 @@
 from PySide2.QtCore import QPropertyAnimation
-from main import *
+from PySide2.QtWidgets import QMainWindow
 
-class UIFunctions(MainWindow):
+class UIFunctions(QMainWindow):
     max=250
     min=60
     def toggleMenu(self):
