@@ -48,7 +48,6 @@ class Ui_form(object):
         self.pushButton = QPushButton(form)
         self.pushButton.setObjectName(u"pushButton")
         self.pushButton.setGeometry(QRect(100, 190, 200, 30))
-        self.pushButton.clicked.connect(lambda: self.login())
         self.pushButton.setStyleSheet(u"QPushButton{\n""	color: rgb(255, 255, 255);\n""	background-color: rgb(0, 93, 243);\n""	border: none;\n""}\n""\n""QPushButton:hover{\n""	color: rgb(255, 255, 255);\n""	background-color: rgb(0, 64, 168);\n""	border: none;\n""}")
         
         self.username = QLineEdit(form)
@@ -111,11 +110,4 @@ class Ui_form(object):
         self.label.setText(QCoreApplication.translate("form", u"Login", None))
         self.label_2.setText(QCoreApplication.translate("form", u"Welcome back, please login in to your account", None))
 
-    # retranslateUi
-
-    
-    def login(self) -> None:
-        if self.username.text() == "admin" and self.password.text() == "admin":
-                self.message.success("Login Successfully")
-        else:
-                self.message.error("Login Faild")                                
+    # retranslateUi                              

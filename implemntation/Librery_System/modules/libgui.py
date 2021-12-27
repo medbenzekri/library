@@ -11,6 +11,7 @@
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
+from modules.Message import myMessage
 
 import modules.resources_rc
 
@@ -325,8 +326,9 @@ class Ui_MainWindow(object):
         self.home_btn.setDefault(False)
         self.search_btn.setDefault(False)
         self.wishlist_btn.setDefault(False)
-
-
+        
+        self.message = myMessage(MainWindow,self)
+        
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
