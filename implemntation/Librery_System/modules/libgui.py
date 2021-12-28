@@ -11,8 +11,6 @@
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
-from modules.Message import myMessage
-
 import modules.resources_rc
 
 class Ui_MainWindow(object):
@@ -148,9 +146,9 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.menu_toggle)
 
-        self.home_btn = QPushButton(self.frame_menus)
-        self.home_btn.setObjectName(u"home_btn")
-        self.home_btn.setMinimumSize(QSize(0, 45))
+        self.search_btn = QPushButton(self.frame_menus)
+        self.search_btn.setObjectName(u"search_btn")
+        self.search_btn.setMinimumSize(QSize(0, 45))
         palette1 = QPalette()
         palette1.setBrush(QPalette.Active, QPalette.WindowText, brush)
         palette1.setBrush(QPalette.Active, QPalette.Button, brush1)
@@ -185,17 +183,17 @@ class Ui_MainWindow(object):
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette1.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush7)
 #endif
-        self.home_btn.setPalette(palette1)
-        self.home_btn.setStyleSheet(u"background-image: url(:/icons/icons/icons8-home-24.png);")
-        self.home_btn.setCheckable(False)
-        self.home_btn.setAutoDefault(False)
-        self.home_btn.setFlat(False)
+        self.search_btn.setPalette(palette1)
+        self.search_btn.setStyleSheet(u"background-image: url(:/icons/icons/icons8-search-24.png);")
+        self.search_btn.setCheckable(False)
+        self.search_btn.setAutoDefault(False)
+        self.search_btn.setFlat(False)
 
-        self.verticalLayout_3.addWidget(self.home_btn)
+        self.verticalLayout_3.addWidget(self.search_btn)
 
-        self.search_btn = QPushButton(self.frame_menus)
-        self.search_btn.setObjectName(u"search_btn")
-        self.search_btn.setMinimumSize(QSize(0, 45))
+        self.wishlist_btn = QPushButton(self.frame_menus)
+        self.wishlist_btn.setObjectName(u"wishlist_btn")
+        self.wishlist_btn.setMinimumSize(QSize(0, 45))
         palette2 = QPalette()
         palette2.setBrush(QPalette.Active, QPalette.WindowText, brush)
         palette2.setBrush(QPalette.Active, QPalette.Button, brush1)
@@ -230,17 +228,17 @@ class Ui_MainWindow(object):
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette2.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush10)
 #endif
-        self.search_btn.setPalette(palette2)
-        self.search_btn.setStyleSheet(u"background-image: url(:/icons/icons/icons8-search-24.png);")
-        self.search_btn.setCheckable(False)
-        self.search_btn.setAutoDefault(False)
-        self.search_btn.setFlat(False)
+        self.wishlist_btn.setPalette(palette2)
+        self.wishlist_btn.setStyleSheet(u"background-image: url(:/icons/icons/icons8-bookmark-24.png);")
+        self.wishlist_btn.setCheckable(False)
+        self.wishlist_btn.setAutoDefault(False)
+        self.wishlist_btn.setFlat(False)
 
-        self.verticalLayout_3.addWidget(self.search_btn)
+        self.verticalLayout_3.addWidget(self.wishlist_btn)
 
-        self.wishlist_btn = QPushButton(self.frame_menus)
-        self.wishlist_btn.setObjectName(u"wishlist_btn")
-        self.wishlist_btn.setMinimumSize(QSize(0, 45))
+        self.home_btn = QPushButton(self.frame_menus)
+        self.home_btn.setObjectName(u"home_btn")
+        self.home_btn.setMinimumSize(QSize(0, 45))
         palette3 = QPalette()
         palette3.setBrush(QPalette.Active, QPalette.WindowText, brush)
         palette3.setBrush(QPalette.Active, QPalette.Button, brush1)
@@ -275,13 +273,13 @@ class Ui_MainWindow(object):
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette3.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush13)
 #endif
-        self.wishlist_btn.setPalette(palette3)
-        self.wishlist_btn.setStyleSheet(u"background-image: url(:/icons/icons/icons8-bookmark-24.png);")
-        self.wishlist_btn.setCheckable(False)
-        self.wishlist_btn.setAutoDefault(False)
-        self.wishlist_btn.setFlat(False)
+        self.home_btn.setPalette(palette3)
+        self.home_btn.setStyleSheet(u"background-image: url(:/icons/icons/icons8-home-24.png);")
+        self.home_btn.setCheckable(False)
+        self.home_btn.setAutoDefault(False)
+        self.home_btn.setFlat(False)
 
-        self.verticalLayout_3.addWidget(self.wishlist_btn)
+        self.verticalLayout_3.addWidget(self.home_btn)
 
 
         self.verticalLayout_2.addWidget(self.frame_menus, 0, Qt.AlignTop)
@@ -297,8 +295,49 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.pages_Widget = QStackedWidget(self.frame_pages)
         self.pages_Widget.setObjectName(u"pages_Widget")
+        self.pages_Widget.setMinimumSize(QSize(3, 0))
         self.page_1 = QWidget()
         self.page_1.setObjectName(u"page_1")
+        self.searchbar = QFrame(self.page_1)
+        self.searchbar.setObjectName(u"searchbar")
+        self.searchbar.setGeometry(QRect(220, 10, 221, 28))
+        self.searchbar.setMaximumSize(QSize(221, 28))
+        self.searchbar.setStyleSheet(u"background-color:white;\n"
+"border-radius:13px;")
+        self.searchbar.setFrameShape(QFrame.StyledPanel)
+        self.searchbar.setFrameShadow(QFrame.Raised)
+        self.searchbtn = QPushButton(self.searchbar)
+        self.searchbtn.setObjectName(u"searchbtn")
+        self.searchbtn.setGeometry(QRect(190, 0, 31, 28))
+        self.searchbtn.setLayoutDirection(Qt.LeftToRight)
+        self.searchbtn.setStyleSheet(u"background-image: url(:/icons/icons/icons8-search-16.png);\n"
+"background-repeat: no-repeat;\n"
+"border: none;\n"
+"background-position:  center;\n"
+"")
+        self.searchtext = QLineEdit(self.searchbar)
+        self.searchtext.setObjectName(u"searchtext")
+        self.searchtext.setGeometry(QRect(12, 0, 181, 28))
+        font = QFont()
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.searchtext.setFont(font)
+        self.scrollArea = QScrollArea(self.page_1)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setGeometry(QRect(0, 130, 921, 511))
+        self.scrollArea.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 919, 509))
+        self.gridLayoutWidget = QWidget(self.scrollAreaWidgetContents)
+        self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
+        self.gridLayoutWidget.setGeometry(QRect(0, 0, 901, 501))
+        self.booksGrid = QGridLayout(self.gridLayoutWidget)
+        self.booksGrid.setObjectName(u"booksGrid")
+        self.booksGrid.setContentsMargins(0, 0, 0, 0)
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.pages_Widget.addWidget(self.page_1)
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
@@ -316,27 +355,26 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.content)
 
         MainWindow.setCentralWidget(self.centralwidget)
-        QWidget.setTabOrder(self.menu_toggle, self.home_btn)
-        QWidget.setTabOrder(self.home_btn, self.search_btn)
+        QWidget.setTabOrder(self.menu_toggle, self.search_btn)
         QWidget.setTabOrder(self.search_btn, self.wishlist_btn)
 
         self.retranslateUi(MainWindow)
 
         self.menu_toggle.setDefault(False)
-        self.home_btn.setDefault(False)
         self.search_btn.setDefault(False)
         self.wishlist_btn.setDefault(False)
-        
-        self.message = myMessage(MainWindow,self)
-        
+        self.home_btn.setDefault(False)
+
+
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"library", None))
         self.menu_toggle.setText(QCoreApplication.translate("MainWindow", u"Menu", None))
-        self.home_btn.setText(QCoreApplication.translate("MainWindow", u"Home", None))
         self.search_btn.setText(QCoreApplication.translate("MainWindow", u"Search", None))
         self.wishlist_btn.setText(QCoreApplication.translate("MainWindow", u"Search", None))
+        self.home_btn.setText(QCoreApplication.translate("MainWindow", u"Home", None))
+        self.searchbtn.setText("")
     # retranslateUi
 

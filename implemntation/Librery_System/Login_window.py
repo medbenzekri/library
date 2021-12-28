@@ -22,7 +22,7 @@ class LoginWindow(QMainWindow, Ui_form):
                     window.ui.message.success("Login Successfully")
         else:
                 self.message.error("Login Faild")  
-    
+      
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
             self.offset = event.pos()
