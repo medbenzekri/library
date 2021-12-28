@@ -19,7 +19,7 @@ class LoginWindow(QMainWindow, Ui_form):
                     self.hide()
                     window = MainWindow()
                     window.show()
-                    window.ui.message.success("Login Successfully")
+                    window.message.success("Login Successfully")
         else:
                 self.message.error("Login Faild")  
       
