@@ -1,8 +1,8 @@
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
-import requests
-import sys
+import requests,sys
+
 class Card(QWidget):
     def __init__(self,data):
         super().__init__()
@@ -11,15 +11,16 @@ class Card(QWidget):
         self.image=QLabel()
         self.name=QLabel(name)
         self.author=QLabel(author)
-        self.image.setPixmap(self.image_data(image_path))
+        self.image.setPixmap(QPixmap(110, 131))
+        
+        self.message = myThread(image_path)
+        self.message.start()
+        self.message.update_image.connect(self.call_update_image)
+                
         self.setup()
         self.show()
         
-    def image_data(self,path):
-        data= requests.get(path).content
-        image=QImage()
-        image.loadFromData(data)
-        return QPixmap(image).scaled(110, 131, Qt.KeepAspectRatio)
+        
     def setup(self):   
         self.card.setGeometry(0,0,110,212)
         self.setFixedSize(110,212)
@@ -32,10 +33,30 @@ class Card(QWidget):
         self.author.setGeometry(QRect(QPoint(0,192),QSize(110,20)))
         self.author.setAlignment(Qt.AlignHCenter)
         
-
+    def call_update_image(self,image):
+            self.image.setPixmap(image)
+        
+class myThread(QThread):
+                update_image = Signal(QPixmap)
+                
+                def __init__(self,path : str,parent = None):
+                        super(myThread, self).__init__(parent)
+                        self.path = path
+                
+                def run(self): 
+                        data = requests.get(self.path).content
+                        image = QImage()
+                        image.loadFromData(data)
+                        self.update_image.emit( QPixmap(image).scaled(110, 131, Qt.KeepAspectRatio) )
+        
+"""
 path="https://m.media-amazon.com/images/I/51p-p9etkTL.jpg"
-babylion={"name":"Lion","author":"some lion","image":path}
+name = "Lion"
+author = "some lion"
+
+babylion={"name":name,"author":author,"image":path}
+
 app = QApplication([])
 card=Card(babylion)
 sys.exit(app.exec_())
-    
+"""
