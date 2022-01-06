@@ -6,7 +6,7 @@ import requests,sys
 class Card(QWidget):
     def __init__(self,data):
         super().__init__()
-        name,author,image_path=data.values()
+        name,author,image_path=data
         self.card=QFrame(self)
         self.image=QLabel()
         self.name=QLabel(name)
@@ -48,15 +48,15 @@ class myThread(QThread):
                         image = QImage()
                         image.loadFromData(data)
                         self.update_image.emit( QPixmap(image).scaled(110, 131, Qt.KeepAspectRatio) )
-        
-"""
-path="https://m.media-amazon.com/images/I/51p-p9etkTL.jpg"
-name = "Lion"
-author = "some lion"
 
-babylion={"name":name,"author":author,"image":path}
+if __name__ == '__main__':
+    path="https://m.media-amazon.com/images/I/51p-p9etkTL.jpg"
+    name = "Lion"
+    author = "some lion"
 
-app = QApplication([])
-card=Card(babylion)
-sys.exit(app.exec_())
-"""
+    babylion={"name":name,"author":author,"image":path}
+
+    app = QApplication([])
+    card=Card(babylion)
+    sys.exit(app.exec_())
+
