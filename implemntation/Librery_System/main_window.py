@@ -1,4 +1,4 @@
-from PySide2.QtWidgets import QMainWindow
+from PySide2.QtWidgets import QGridLayout, QLayoutItem, QMainWindow
 # GUI FILE
 from modules.libgui import Ui_MainWindow
 # IMPORT FUNCTIONS
@@ -15,12 +15,16 @@ class MainWindow(QMainWindow):
         self.ui.home_btn.clicked.connect(lambda: self.ui.pages_Widget.setCurrentWidget(self.ui.home_page))
         self.ui.search_btn.clicked.connect(lambda: self.ui.pages_Widget.setCurrentWidget(self.ui.search_page))
         self.message = myMessage(self,self)
+        self.books_grid=QGridLayout(self.ui.scrollAreaWidgetContents)
         self.show_books()
         
     def show_books(self):
-            books= Fetcher.get_books(20)
+            
+            books= Fetcher.get_books(30)
+            # self.books_grid.addWidget(Card(books[0]),0,0)
             for i,book in enumerate(books):
-                self.ui.booksGrid.addWidget(Card(book),i%4,i//4)
+                self.books_grid.setRowMinimumHeight(i//4,212)
+                self.books_grid.addWidget(Card(book),i//8,i%8)
         
 
     

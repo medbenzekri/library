@@ -1099,7 +1099,7 @@ background-color: rgb(46, 52, 54);
                 <string notr="true">background-image: url(:/icons/icons/icons8-bookmark-24.png);</string>
                </property>
                <property name="text">
-                <string>Search</string>
+                <string>My Books</string>
                </property>
                <property name="checkable">
                 <bool>false</bool>
@@ -1214,8 +1214,14 @@ background-position:  center;
                 <height>511</height>
                </rect>
               </property>
+              <property name="frameShape">
+               <enum>QFrame::NoFrame</enum>
+              </property>
               <property name="verticalScrollBarPolicy">
-               <enum>Qt::ScrollBarAsNeeded</enum>
+               <enum>Qt::ScrollBarAlwaysOff</enum>
+              </property>
+              <property name="sizeAdjustPolicy">
+               <enum>QAbstractScrollArea::AdjustToContents</enum>
               </property>
               <property name="widgetResizable">
                <bool>true</bool>
@@ -1225,21 +1231,10 @@ background-position:  center;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>919</width>
-                 <height>509</height>
+                 <width>921</width>
+                 <height>511</height>
                 </rect>
                </property>
-               <widget class="QWidget" name="gridLayoutWidget">
-                <property name="geometry">
-                 <rect>
-                  <x>0</x>
-                  <y>0</y>
-                  <width>901</width>
-                  <height>501</height>
-                 </rect>
-                </property>
-                <layout class="QGridLayout" name="booksGrid"/>
-               </widget>
               </widget>
              </widget>
             </widget>

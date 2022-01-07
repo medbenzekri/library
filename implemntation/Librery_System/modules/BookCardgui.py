@@ -54,7 +54,7 @@ if __name__ == '__main__':
     name = "Lion"
     author = "some lion"
 
-    babylion={"name":name,"author":author,"image":path}
+    babylion=(name,author,path)
 
     app = QApplication([])
     card=Card(babylion)
