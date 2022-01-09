@@ -16,15 +16,13 @@ class MainWindow(QMainWindow):
         self.ui.search_btn.clicked.connect(lambda: self.ui.pages_Widget.setCurrentWidget(self.ui.search_page))
         self.message = myMessage(self,self)
         self.books_grid=QGridLayout(self.ui.scrollAreaWidgetContents)
+        self.books_grid.setVerticalSpacing(10)
         self.show_books()
         
     def show_books(self):
             
-            books= Fetcher.get_books(30)
-            # self.books_grid.addWidget(Card(books[0]),0,0)
+            books= Fetcher.get_books(100)
             for i,book in enumerate(books):
                 self.books_grid.setRowMinimumHeight(i//4,212)
                 self.books_grid.addWidget(Card(book),i//8,i%8)
         
-
-    

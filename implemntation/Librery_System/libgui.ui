@@ -43,6 +43,9 @@ background-color: rgb(46, 52, 54) ;
  #centralwidget *{
 background-color: rgb(46, 52, 54);
 }
+QLabel{
+color :white;
+}
 
 
 
@@ -1220,6 +1223,9 @@ background-position:  center;
               <property name="verticalScrollBarPolicy">
                <enum>Qt::ScrollBarAlwaysOff</enum>
               </property>
+              <property name="horizontalScrollBarPolicy">
+               <enum>Qt::ScrollBarAlwaysOff</enum>
+              </property>
               <property name="sizeAdjustPolicy">
                <enum>QAbstractScrollArea::AdjustToContents</enum>
               </property>
@@ -1237,9 +1243,506 @@ background-position:  center;
                </property>
               </widget>
              </widget>
+             <widget class="QLabel" name="label">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>96</y>
+                <width>131</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>DejaVu Sans Mono</family>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Books</string>
+              </property>
+             </widget>
             </widget>
             <widget class="QWidget" name="search_page"/>
             <widget class="QWidget" name="wishlist_page"/>
+            <widget class="QWidget" name="book_page">
+             <property name="windowTitle">
+              <string>Form</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QWidget{
+                     background-color: rgb(46, 52, 54);
+                 }
+                 QWidget &gt; QLabel{
+                     color : rgb(240,240,240);
+                 }
+                 QWidget &gt; QPushButton{
+                     color : rgb(255,255,255);
+                    background-color : gb(240,200,240);
+                 }</string>
+             </property>
+             <widget class="QLabel" name="image">
+              <property name="geometry">
+               <rect>
+                <x>30</x>
+                <y>60</y>
+                <width>250</width>
+                <height>321</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::NoFrame</enum>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>:/icons/icons/test.jpg</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QLabel" name="title">
+              <property name="geometry">
+               <rect>
+                <x>310</x>
+                <y>50</y>
+                <width>381</width>
+                <height>91</height>
+               </rect>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="font">
+               <font>
+                <family>FreeSans</family>
+                <pointsize>22</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
+                <strikeout>false</strikeout>
+                <stylestrategy>PreferDefault</stylestrategy>
+                <kerning>true</kerning>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="lineWidth">
+               <number>1</number>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="scaledContents">
+               <bool>false</bool>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+              <property name="indent">
+               <number>0</number>
+              </property>
+              <property name="openExternalLinks">
+               <bool>false</bool>
+              </property>
+             </widget>
+             <widget class="QLabel" name="description">
+              <property name="geometry">
+               <rect>
+                <x>310</x>
+                <y>190</y>
+                <width>611</width>
+                <height>241</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Ubuntu Condensed</family>
+                <pointsize>13</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="textFormat">
+               <enum>Qt::PlainText</enum>
+              </property>
+              <property name="scaledContents">
+               <bool>false</bool>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="pick">
+              <property name="geometry">
+               <rect>
+                <x>310</x>
+                <y>150</y>
+                <width>89</width>
+                <height>25</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Pick</string>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="reserve">
+              <property name="geometry">
+               <rect>
+                <x>420</x>
+                <y>150</y>
+                <width>89</width>
+                <height>25</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Reserve</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_6">
+              <property name="geometry">
+               <rect>
+                <x>40</x>
+                <y>10</y>
+                <width>201</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Ubuntu Condensed</family>
+                <pointsize>16</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+                     color : #C3DDE6;
+                 }</string>
+              </property>
+              <property name="text">
+               <string>Book Details</string>
+              </property>
+             </widget>
+             <widget class="QWidget" name="widget" native="true">
+              <property name="geometry">
+               <rect>
+                <x>30</x>
+                <y>430</y>
+                <width>781</width>
+                <height>211</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <widget class="QLabel" name="label_7">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>0</y>
+                 <width>61</width>
+                 <height>31</height>
+                </rect>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Ubuntu Condensed</family>
+                 <pointsize>16</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+                     color : #C3DDE6;
+                 }</string>
+               </property>
+               <property name="text">
+                <string>Details</string>
+               </property>
+              </widget>
+              <widget class="QLabel" name="label_8">
+               <property name="geometry">
+                <rect>
+                 <x>40</x>
+                 <y>40</y>
+                 <width>61</width>
+                 <height>31</height>
+                </rect>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Ubuntu Condensed</family>
+                 <pointsize>16</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+                     color : rgb(89, 89, 89);
+                 }</string>
+               </property>
+               <property name="text">
+                <string>Authors</string>
+               </property>
+              </widget>
+              <widget class="QLabel" name="label_9">
+               <property name="geometry">
+                <rect>
+                 <x>270</x>
+                 <y>40</y>
+                 <width>91</width>
+                 <height>31</height>
+                </rect>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Ubuntu Condensed</family>
+                 <pointsize>16</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+                     color : rgb(89, 89, 89);
+                 }</string>
+               </property>
+               <property name="text">
+                <string>Publisher</string>
+               </property>
+              </widget>
+              <widget class="QLabel" name="label_10">
+               <property name="geometry">
+                <rect>
+                 <x>40</x>
+                 <y>120</y>
+                 <width>111</width>
+                 <height>31</height>
+                </rect>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Ubuntu Condensed</family>
+                 <pointsize>16</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+                     color : rgb(89, 89, 89);
+                 }</string>
+               </property>
+               <property name="text">
+                <string>Released Date</string>
+               </property>
+              </widget>
+              <widget class="QLabel" name="authors">
+               <property name="geometry">
+                <rect>
+                 <x>40</x>
+                 <y>80</y>
+                 <width>211</width>
+                 <height>41</height>
+                </rect>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Ubuntu Condensed</family>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+                     color : rgb(240,240,240);
+                 }</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+              <widget class="QLabel" name="publisher">
+               <property name="geometry">
+                <rect>
+                 <x>270</x>
+                 <y>80</y>
+                 <width>211</width>
+                 <height>41</height>
+                </rect>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Ubuntu Condensed</family>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+                     color : rgb(240,240,240);
+                 }</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+              <widget class="QLabel" name="date">
+               <property name="geometry">
+                <rect>
+                 <x>40</x>
+                 <y>160</y>
+                 <width>211</width>
+                 <height>21</height>
+                </rect>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Ubuntu Condensed</family>
+                 <pointsize>15</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+                     color : rgb(240,240,240);
+                 }</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+              <widget class="QLabel" name="label_14">
+               <property name="geometry">
+                <rect>
+                 <x>520</x>
+                 <y>40</y>
+                 <width>91</width>
+                 <height>31</height>
+                </rect>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Ubuntu Condensed</family>
+                 <pointsize>16</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+                     color : rgb(89, 89, 89);
+                 }</string>
+               </property>
+               <property name="text">
+                <string>ISBN</string>
+               </property>
+              </widget>
+              <widget class="QLabel" name="isbn">
+               <property name="geometry">
+                <rect>
+                 <x>520</x>
+                 <y>80</y>
+                 <width>211</width>
+                 <height>41</height>
+                </rect>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Ubuntu Condensed</family>
+                 <pointsize>13</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+                     color : rgb(240,240,240);
+                 }</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </widget>
+             <widget class="QLabel" name="label_11">
+              <property name="geometry">
+               <rect>
+                <x>310</x>
+                <y>10</y>
+                <width>61</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Ubuntu Condensed</family>
+                <pointsize>16</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+                     color : #C3DDE6;
+                 }</string>
+              </property>
+              <property name="text">
+               <string>Title</string>
+              </property>
+             </widget>
+            </widget>
            </widget>
           </item>
          </layout>

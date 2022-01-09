@@ -42,6 +42,9 @@ class Ui_MainWindow(object):
 " #centralwidget *{\n"
 "background-color: rgb(46, 52, 54);\n"
 "}\n"
+"QLabel{\n"
+"color :white;\n"
+"}\n"
 "\n"
 "\n"
 "\n"
@@ -329,12 +332,21 @@ class Ui_MainWindow(object):
         self.scrollArea.setGeometry(QRect(0, 130, 921, 511))
         self.scrollArea.setFrameShape(QFrame.NoFrame)
         self.scrollArea.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.scrollArea.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
         self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 921, 511))
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        self.label = QLabel(self.home_page)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(0, 96, 131, 21))
+        font1 = QFont()
+        font1.setFamily(u"DejaVu Sans Mono")
+        font1.setBold(True)
+        font1.setWeight(75)
+        self.label.setFont(font1)
         self.pages_Widget.addWidget(self.home_page)
         self.search_page = QWidget()
         self.search_page.setObjectName(u"search_page")
@@ -342,6 +354,180 @@ class Ui_MainWindow(object):
         self.wishlist_page = QWidget()
         self.wishlist_page.setObjectName(u"wishlist_page")
         self.pages_Widget.addWidget(self.wishlist_page)
+        self.book_page = QWidget()
+        self.book_page.setObjectName(u"book_page")
+        self.book_page.setStyleSheet(u"QWidget{\n"
+"                     background-color: rgb(46, 52, 54);\n"
+"                 }\n"
+"                 QWidget > QLabel{\n"
+"                     color : rgb(240,240,240);\n"
+"                 }\n"
+"                 QWidget > QPushButton{\n"
+"                     color : rgb(255,255,255);\n"
+"                    background-color : gb(240,200,240);\n"
+"                 }")
+        self.image = QLabel(self.book_page)
+        self.image.setObjectName(u"image")
+        self.image.setGeometry(QRect(30, 60, 250, 321))
+        self.image.setStyleSheet(u"")
+        self.image.setFrameShape(QFrame.NoFrame)
+        self.image.setPixmap(QPixmap(u":/icons/icons/test.jpg"))
+        self.image.setScaledContents(True)
+        self.title = QLabel(self.book_page)
+        self.title.setObjectName(u"title")
+        self.title.setGeometry(QRect(310, 50, 381, 91))
+        sizePolicy = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.title.sizePolicy().hasHeightForWidth())
+        self.title.setSizePolicy(sizePolicy)
+        font2 = QFont()
+        font2.setFamily(u"FreeSans")
+        font2.setPointSize(22)
+        font2.setBold(False)
+        font2.setItalic(False)
+        font2.setWeight(50)
+        font2.setStrikeOut(False)
+        font2.setKerning(True)
+        font2.setStyleStrategy(QFont.PreferDefault)
+        self.title.setFont(font2)
+        self.title.setStyleSheet(u"")
+        self.title.setLineWidth(1)
+        self.title.setScaledContents(False)
+        self.title.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.title.setWordWrap(True)
+        self.title.setIndent(0)
+        self.title.setOpenExternalLinks(False)
+        self.description = QLabel(self.book_page)
+        self.description.setObjectName(u"description")
+        self.description.setGeometry(QRect(310, 190, 611, 241))
+        font3 = QFont()
+        font3.setFamily(u"Ubuntu Condensed")
+        font3.setPointSize(13)
+        font3.setBold(False)
+        font3.setItalic(False)
+        font3.setWeight(50)
+        self.description.setFont(font3)
+        self.description.setTextFormat(Qt.PlainText)
+        self.description.setScaledContents(False)
+        self.description.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.description.setWordWrap(True)
+        self.pick = QPushButton(self.book_page)
+        self.pick.setObjectName(u"pick")
+        self.pick.setGeometry(QRect(310, 150, 89, 25))
+        self.reserve = QPushButton(self.book_page)
+        self.reserve.setObjectName(u"reserve")
+        self.reserve.setGeometry(QRect(420, 150, 89, 25))
+        self.label_6 = QLabel(self.book_page)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setGeometry(QRect(40, 10, 201, 31))
+        font4 = QFont()
+        font4.setFamily(u"Ubuntu Condensed")
+        font4.setPointSize(16)
+        font4.setBold(True)
+        font4.setWeight(75)
+        self.label_6.setFont(font4)
+        self.label_6.setStyleSheet(u"QLabel {\n"
+"                     color : #C3DDE6;\n"
+"                 }")
+        self.widget = QWidget(self.book_page)
+        self.widget.setObjectName(u"widget")
+        self.widget.setGeometry(QRect(30, 430, 781, 211))
+        self.widget.setStyleSheet(u"")
+        self.label_7 = QLabel(self.widget)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setGeometry(QRect(10, 0, 61, 31))
+        self.label_7.setFont(font4)
+        self.label_7.setStyleSheet(u"QLabel {\n"
+"                     color : #C3DDE6;\n"
+"                 }")
+        self.label_8 = QLabel(self.widget)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setGeometry(QRect(40, 40, 61, 31))
+        self.label_8.setFont(font4)
+        self.label_8.setStyleSheet(u"QLabel {\n"
+"                     color : rgb(89, 89, 89);\n"
+"                 }")
+        self.label_9 = QLabel(self.widget)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setGeometry(QRect(270, 40, 91, 31))
+        self.label_9.setFont(font4)
+        self.label_9.setStyleSheet(u"QLabel {\n"
+"                     color : rgb(89, 89, 89);\n"
+"                 }")
+        self.label_10 = QLabel(self.widget)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setGeometry(QRect(40, 120, 111, 31))
+        self.label_10.setFont(font4)
+        self.label_10.setStyleSheet(u"QLabel {\n"
+"                     color : rgb(89, 89, 89);\n"
+"                 }")
+        self.authors = QLabel(self.widget)
+        self.authors.setObjectName(u"authors")
+        self.authors.setGeometry(QRect(40, 80, 211, 41))
+        font5 = QFont()
+        font5.setFamily(u"Ubuntu Condensed")
+        font5.setPointSize(10)
+        font5.setBold(True)
+        font5.setWeight(75)
+        self.authors.setFont(font5)
+        self.authors.setStyleSheet(u"QLabel {\n"
+"                     color : rgb(240,240,240);\n"
+"                 }")
+        self.authors.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.authors.setWordWrap(True)
+        self.publisher = QLabel(self.widget)
+        self.publisher.setObjectName(u"publisher")
+        self.publisher.setGeometry(QRect(270, 80, 211, 41))
+        self.publisher.setFont(font5)
+        self.publisher.setStyleSheet(u"QLabel {\n"
+"                     color : rgb(240,240,240);\n"
+"                 }")
+        self.publisher.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.publisher.setWordWrap(True)
+        self.date = QLabel(self.widget)
+        self.date.setObjectName(u"date")
+        self.date.setGeometry(QRect(40, 160, 211, 21))
+        font6 = QFont()
+        font6.setFamily(u"Ubuntu Condensed")
+        font6.setPointSize(15)
+        font6.setBold(True)
+        font6.setWeight(75)
+        self.date.setFont(font6)
+        self.date.setStyleSheet(u"QLabel {\n"
+"                     color : rgb(240,240,240);\n"
+"                 }")
+        self.date.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.date.setWordWrap(True)
+        self.label_14 = QLabel(self.widget)
+        self.label_14.setObjectName(u"label_14")
+        self.label_14.setGeometry(QRect(520, 40, 91, 31))
+        self.label_14.setFont(font4)
+        self.label_14.setStyleSheet(u"QLabel {\n"
+"                     color : rgb(89, 89, 89);\n"
+"                 }")
+        self.isbn = QLabel(self.widget)
+        self.isbn.setObjectName(u"isbn")
+        self.isbn.setGeometry(QRect(520, 80, 211, 41))
+        font7 = QFont()
+        font7.setFamily(u"Ubuntu Condensed")
+        font7.setPointSize(13)
+        font7.setBold(True)
+        font7.setWeight(75)
+        self.isbn.setFont(font7)
+        self.isbn.setStyleSheet(u"QLabel {\n"
+"                     color : rgb(240,240,240);\n"
+"                 }")
+        self.isbn.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.isbn.setWordWrap(True)
+        self.label_11 = QLabel(self.book_page)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setGeometry(QRect(310, 10, 61, 31))
+        self.label_11.setFont(font4)
+        self.label_11.setStyleSheet(u"QLabel {\n"
+"                     color : #C3DDE6;\n"
+"                 }")
+        self.pages_Widget.addWidget(self.book_page)
 
         self.verticalLayout_5.addWidget(self.pages_Widget)
 
@@ -373,5 +559,23 @@ class Ui_MainWindow(object):
         self.search_btn.setText(QCoreApplication.translate("MainWindow", u"Search", None))
         self.wishlist_btn.setText(QCoreApplication.translate("MainWindow", u"My Books", None))
         self.searchbtn.setText("")
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Books", None))
+        self.book_page.setWindowTitle(QCoreApplication.translate("MainWindow", u"Form", None))
+        self.image.setText("")
+        self.title.setText("")
+        self.description.setText("")
+        self.pick.setText(QCoreApplication.translate("MainWindow", u"Pick", None))
+        self.reserve.setText(QCoreApplication.translate("MainWindow", u"Reserve", None))
+        self.label_6.setText(QCoreApplication.translate("MainWindow", u"Book Details", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Details", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Authors", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Publisher", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Released Date", None))
+        self.authors.setText("")
+        self.publisher.setText("")
+        self.date.setText("")
+        self.label_14.setText(QCoreApplication.translate("MainWindow", u"ISBN", None))
+        self.isbn.setText("")
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Title", None))
     # retranslateUi
 

@@ -11,7 +11,7 @@ class Card(QWidget):
         self.image=QLabel()
         self.name=QLabel(name)
         self.author=QLabel(author)
-        self.image.setPixmap(QPixmap(110, 131))
+        self.image.setPixmap(QPixmap(128, 193))
         
         self.message = myThread(image_path)
         self.message.start()
@@ -22,15 +22,22 @@ class Card(QWidget):
         
         
     def setup(self):   
-        self.card.setGeometry(0,0,110,212)
-        self.setFixedSize(110,212)
+        self.card.setGeometry(0,0,128,272)
+        self.card.setStyleSheet("QLabel{\
+            color:white;\
+            }\
+            ")
+        self.setFixedSize(128,272)
         self.image.setParent(self.card)
-        self.image.setGeometry(QRect(QPoint(0,0),QSize(110,131)))
+        self.image.setGeometry(QRect(QPoint(0,0),QSize(128,193)))
+        self.image.setAlignment(Qt.AlignHCenter)
         self.name.setParent(self.card)
-        self.name.setGeometry(QRect(QPoint(0,140),QSize(110,31)))
+        self.name.setWordWrap(True)
+        self.name.setGeometry(QRect(QPoint(0,200),QSize(128,35)))
         self.name.setAlignment(Qt.AlignHCenter)
         self.author.setParent(self.card)
-        self.author.setGeometry(QRect(QPoint(0,192),QSize(110,20)))
+        self.author.setWordWrap(True)
+        self.author.setGeometry(QRect(QPoint(0,252),QSize(128,20)))
         self.author.setAlignment(Qt.AlignHCenter)
         
     def call_update_image(self,image):
@@ -47,7 +54,7 @@ class myThread(QThread):
                         data = requests.get(self.path).content
                         image = QImage()
                         image.loadFromData(data)
-                        self.update_image.emit( QPixmap(image).scaled(110, 131, Qt.KeepAspectRatio) )
+                        self.update_image.emit( QPixmap(image).scaled(128, 193, Qt.KeepAspectRatio) )
 
 if __name__ == '__main__':
     path="https://m.media-amazon.com/images/I/51p-p9etkTL.jpg"

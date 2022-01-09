@@ -1,10 +1,10 @@
-import mysql.connector 
+from mysql import connector
 import bcrypt
 
 class Authenticate :
     def __init__(self) -> None:
         try:
-            Authenticate.session= mysql.connector.connect(
+            Authenticate.session= connector.connect(
             host="20.111.12.142",
             database="Library",
             user="client",
@@ -18,12 +18,12 @@ class Authenticate :
         cursor = Authenticate.session.cursor()
         cursor.execute(f"SELECT * FROM user WHERE username = '{username}'")
         result = cursor.fetchone()
+        cursor.excute(f"SELECT * FROM role WHERE username = '{username}'")
         cursor.close()
-        Authenticate.session.close()
         return False if result == None else bcrypt.checkpw(password,bytes(result[1]))
 
 if __name__ == '__main__':
-    session= mysql.connector.connect(
+    session= connector.connect(
             host="20.111.12.142",
             database="Library",
             user="client",
