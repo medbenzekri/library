@@ -35,6 +35,10 @@ class MainWindow(QMainWindow):
         self.imagefetcher.start()
         self.imagefetcher.update_image.connect(self.ui.image.setPixmap)
         self.ui.description.setText(data["description"])
+        self.ui.authors.setText(data["GROUP_CONCAT(author_book.name)"])
+        self.ui.publisher.setText(data["publisher"])
+        self.ui.date.setText(data["publishing_date"])
+        self.ui.isbn.setText(data["ISBN"])
         self.ui.pages_Widget.setCurrentWidget(
             self.ui.book_page)
 
