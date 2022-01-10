@@ -12,7 +12,8 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-import modules.resources_rc
+import library.implemntation.Librery_System.modules.resources_rc
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -364,15 +365,17 @@ class Ui_MainWindow(object):
 "                 }\n"
 "                 QWidget > QPushButton{\n"
 "                     color : rgb(255,255,255);\n"
-"                    background-color : gb(240,200,240);\n"
+"                    background-color : rgb(0,0,0);\n"
+"                 }\n"
+"                 QWidget > QPushButton : hover{\n"
+"                     color : rgb(255,255,255);\n"
+"                    background-color : rgb(10,10,10);\n"
 "                 }")
         self.image = QLabel(self.book_page)
         self.image.setObjectName(u"image")
         self.image.setGeometry(QRect(30, 60, 250, 321))
         self.image.setStyleSheet(u"")
         self.image.setFrameShape(QFrame.NoFrame)
-        self.image.setPixmap(QPixmap(u":/icons/icons/test.jpg"))
-        self.image.setScaledContents(True)
         self.title = QLabel(self.book_page)
         self.title.setObjectName(u"title")
         self.title.setGeometry(QRect(310, 50, 381, 91))
@@ -520,6 +523,20 @@ class Ui_MainWindow(object):
 "                 }")
         self.isbn.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.isbn.setWordWrap(True)
+        self.back = QLabel(self.book_page)
+        self.back.setObjectName(u"back")
+        self.back.setGeometry(QRect(856, 10, 71, 21))
+        font8 = QFont()
+        font8.setPointSize(12)
+        font8.setBold(True)
+        font8.setItalic(False)
+        font8.setUnderline(False)
+        font8.setWeight(75)
+        self.back.setFont(font8)
+        self.back.setStyleSheet(
+                u"QLabel:hover{\n""	color : white;\n""	font-weight: bold;\n""	font-size: 12px;\n""}")
+        self.back.setTextFormat(Qt.AutoText)
+        self.back.setAlignment(Qt.AlignCenter)
         self.label_11 = QLabel(self.book_page)
         self.label_11.setObjectName(u"label_11")
         self.label_11.setGeometry(QRect(310, 10, 61, 31))
@@ -577,5 +594,6 @@ class Ui_MainWindow(object):
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"ISBN", None))
         self.isbn.setText("")
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"Title", None))
+        self.back.setText(QCoreApplication.translate("Form", u"\u2190 back", None))
     # retranslateUi
 
