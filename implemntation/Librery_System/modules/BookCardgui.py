@@ -112,3 +112,4 @@ if __name__ == '__main__':
     app = QApplication([])
     card = Card(babylion)
     sys.exit(app.exec_())
+
