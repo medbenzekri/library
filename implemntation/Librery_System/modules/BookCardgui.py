@@ -3,16 +3,19 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 import requests,sys
 
+from modules.BookPageGui import BookPage
+
 class Card(QWidget):
-    def __init__(self,data):
+    def __init__(self,data,parent):
         super().__init__()
-        name,author,image_path=data
+        name,author,image_path= data['title'],data['GROUP_CONCAT(author_book.name)'],data['image']
         self.card=QFrame(self)
         self.image=QLabel()
         self.name=QLabel(name)
         self.author=QLabel(author)
         self.image.setPixmap(QPixmap(128, 193))
-        
+        self.data = data
+        self.p = parent
         self.message = myThread(image_path)
         self.message.start()
         self.message.update_image.connect(self.call_update_image)
@@ -20,7 +23,14 @@ class Card(QWidget):
         self.setup()
         self.show()
         
-        
+    def mousePressEvent(self, event):
+        if event.button() == Qt.LeftButton:
+            page = BookPage(self.data)
+            self.p.ui.pages_Widget.addWidget(page)
+            self.p.ui.pages_Widget.setCurrentWidget(page)
+        else:
+            super().mousePressEvent(event)
+            
     def setup(self):   
         self.card.setGeometry(0,0,128,272)
         self.card.setStyleSheet("QLabel{\

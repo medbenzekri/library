@@ -21,8 +21,7 @@ class MainWindow(QMainWindow):
         
     def show_books(self):
             
-            books= Fetcher.get_books(100)
+            books= Fetcher.get_books(500)
             for i,book in enumerate(books):
-                self.books_grid.setRowMinimumHeight(i//4,212)
                 self.books_grid.addWidget(Card(book),i//8,i%8)
         

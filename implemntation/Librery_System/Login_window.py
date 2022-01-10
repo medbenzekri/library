@@ -13,7 +13,7 @@ class LoginWindow(QMainWindow, Ui_form):
         self.pushButton.clicked.connect(lambda:self.login(controller))
         
     def login(self,controller) -> None:
-        if Authenticate.login(self.username.text(),bytes(self.password.text(),encoding='utf8')):
+        if Authenticate.login(self.username.text(),self.password.text()):
             controller.success_login()
         else:
             self.message.error("Login Faild")  

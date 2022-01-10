@@ -1,6 +1,5 @@
 from PySide2.QtCore import QThread, Signal
 from PySide2.QtWidgets import QMainWindow,QPushButton
-
 import time
 
 
