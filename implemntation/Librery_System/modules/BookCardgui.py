@@ -31,7 +31,7 @@ class Card(QWidget):
         if event.button() == Qt.LeftButton:
             self.p.ui.title.setText(self.data['title'])
             self.p.ui.description.setText(self.data['description'])
-            self.p.ui.authors.setText(self.data['GROUP_CONCAT(author_book.name)'])
+            self.p.ui.authors.setText(self.data['authors'])
             self.p.ui.publisher.setText(self.data['publisher'])
             self.p.ui.date.setText(self.data['publishing_date'])
             self.p.ui.isbn.setText(self.data['ISBN'])
@@ -107,7 +107,7 @@ if __name__ == '__main__':
     name = "Lion"
     author = "some lion"
 
-    babylion = {'title': name, 'GROUP_CONCAT(author_book.name)': author, 'image': path}
+    babylion = {'title': name, 'authors': author, 'image': path}
 
     app = QApplication([])
     card = Card(babylion)

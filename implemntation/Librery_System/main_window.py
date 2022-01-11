@@ -24,4 +24,4 @@ class MainWindow(QMainWindow):
     def show_books(self):
         books = get_books(500)
         for i, book in enumerate(books):
-            self.books_grid.addWidget(Card(book, self), i // 8, i % 8)
+            self.books_grid.addWidget(Card(book, self), i // 6, i % 6)

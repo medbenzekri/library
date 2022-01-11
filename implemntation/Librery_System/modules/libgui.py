@@ -16,11 +16,12 @@ import library.implemntation.Librery_System.modules.resources_rc
 
 
 class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
+    def setupUi(self, MainWindow: QMainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1007, 700)
-        MainWindow.setMinimumSize(QSize(45, 700))
+        MainWindow.setFixedSize(1160,700) # resize(1093, 700)
+
+        #MainWindow.setMinimumSize(QSize(1160, 700))
         MainWindow.setStyleSheet(u"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -305,7 +306,7 @@ class Ui_MainWindow(object):
         self.home_page.setObjectName(u"home_page")
         self.searchbar = QFrame(self.home_page)
         self.searchbar.setObjectName(u"searchbar")
-        self.searchbar.setGeometry(QRect(220, 10, 221, 28))
+        self.searchbar.setGeometry(QRect((1019/2) - (221/2), 10, 221, 28))
         self.searchbar.setMaximumSize(QSize(221, 28))
         self.searchbar.setStyleSheet(u"background-color:white;\n"
 "border-radius:13px;")
@@ -330,7 +331,7 @@ class Ui_MainWindow(object):
         self.searchtext.setFont(font)
         self.scrollArea = QScrollArea(self.home_page)
         self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setGeometry(QRect(0, 130, 921, 511))
+        self.scrollArea.setGeometry(QRect(0, 130, 1100, 511))
         self.scrollArea.setFrameShape(QFrame.NoFrame)
         self.scrollArea.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
@@ -525,7 +526,7 @@ class Ui_MainWindow(object):
         self.isbn.setWordWrap(True)
         self.back = QLabel(self.book_page)
         self.back.setObjectName(u"back")
-        self.back.setGeometry(QRect(856, 10, 71, 21))
+        self.back.setGeometry(QRect(1000, 10, 71, 21))
         font8 = QFont()
         font8.setPointSize(12)
         font8.setBold(True)
