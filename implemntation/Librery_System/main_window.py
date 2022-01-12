@@ -7,6 +7,7 @@ from modules.ui_functions import UIFunctions
 from modules.Message import myMessage
 from modules.BookCardgui import Card,myThread 
 from modules.DatabaseFetcher import Fetcher
+from modules.Layout import FlowLayout
 import re
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -21,13 +22,14 @@ class MainWindow(QMainWindow):
         self.ui.add_book_btn.hide()
         self.ui.add_user_btn.hide()
         self.message = myMessage(self,self)
-        self.new_gridlayout()
+        self.books_grid= FlowLayout(self.ui.scrollAreaWidgetContents)
+        self.books_grid.setSpacing(10)
         self.show_books()
         
     def show_books(self):
             books= Fetcher.get_books(500)
             for i,book in enumerate(books):
-                self.books_grid.addWidget(Card(book,self),i//7,i%7)
+                self.books_grid.addWidget(Card(book,self))
 
     def show_book_info(self,data:dict):
         self.ui.title.setText(data["title"])

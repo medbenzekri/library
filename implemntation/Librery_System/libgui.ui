@@ -1737,7 +1737,7 @@ background-position:  center;
                  <enum>Qt::ScrollBarAlwaysOff</enum>
                 </property>
                 <property name="sizeAdjustPolicy">
-                 <enum>QAbstractScrollArea::AdjustToContents</enum>
+                 <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
                 </property>
                 <property name="widgetResizable">
                  <bool>true</bool>
