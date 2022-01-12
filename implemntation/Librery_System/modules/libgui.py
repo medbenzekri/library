@@ -499,7 +499,7 @@ class Ui_MainWindow(object):
         sizePolicy = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(sedelf.title.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(self.title.sizePolicy().hasHeightForWidth())
         self.title.setSizePolicy(sizePolicy)
         font2 = QFont()
         font2.setFamily(u"FreeSans")

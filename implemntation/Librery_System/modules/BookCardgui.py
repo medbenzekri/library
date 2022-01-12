@@ -8,8 +8,7 @@ from PySide2.QtWidgets import *
 class Card(QWidget):
     def __init__(self, data, parent=None):
         super().__init__()
-        name, author, image_path = data['title'], data[
-            'authors'], data['image']
+        name, image_path = data['title'], data['image']
         self.card = QFrame(self)
 
         self.image = QLabel()  # Image
@@ -46,10 +45,6 @@ class Card(QWidget):
         self.name.setWordWrap(True)
         self.name.setGeometry(QRect(QPoint(0, 200), QSize(128, 35)))
         self.name.setAlignment(Qt.AlignHCenter)
-        self.author.setParent(self.card)
-        self.author.setWordWrap(True)
-        self.author.setGeometry(QRect(QPoint(0, 252), QSize(128, 20)))
-        self.author.setAlignment(Qt.AlignHCenter)
 
     def call_update_image(self, image):
         self.image.setPixmap(image)
