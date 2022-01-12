@@ -8,7 +8,8 @@ from PySide2.QtWidgets import *
 class Card(QWidget):
     def __init__(self, data, parent=None):
         super().__init__()
-        name, image_path = data['title'], data['image']
+        name, author, image_path = data['title'], data[
+            'authors'], data['image']
         self.card = QFrame(self)
 
         self.image = QLabel()  # Image
@@ -16,11 +17,9 @@ class Card(QWidget):
         image = QPixmap(128, 193)
         image.fill(Qt.GlobalColor.darkGray)
         self.image.setPixmap(QPixmap(128, 193))
-
-        self.data = data  # Book data
-        self.p = parent  # Parent
-
-        self.message = myThread(image_path)
+        self.data = data
+        self.p = parent
+        self.message = myThread(image_path,(128,193))
         self.message.start()
         self.message.update_image.connect(self.call_update_image)
 
@@ -29,23 +28,7 @@ class Card(QWidget):
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
-            self.p.ui.title.setText(self.data['title'])
-            self.p.ui.description.setText(self.data['description'])
-            self.p.ui.authors.setText(self.data['authors'])
-            self.p.ui.publisher.setText(self.data['publisher'])
-            self.p.ui.date.setText(self.data['publishing_date'])
-            self.p.ui.isbn.setText(self.data['ISBN'])
-
-            self.p.ui.back.mousePressEvent = lambda x: self.p.ui.pages_Widget.setCurrentWidget(self.p.ui.home_page)  # Back to parent
-
-            self.p.ui.message = myThread2(self.data['image'])
-            self.p.ui.message.start()
-            self.p.ui.message.update_image.connect(self.call_update_book_image)
-
-            self.p.ui.image.setPixmap(QPixmap())
-
-            self.p.ui.pages_Widget.setCurrentWidget(self.p.ui.book_page)
-
+            self.p.show_book_info(self.data)
         else:
             super().mousePressEvent(event)
 
@@ -61,45 +44,31 @@ class Card(QWidget):
         self.image.setAlignment(Qt.AlignHCenter)
         self.name.setParent(self.card)
         self.name.setWordWrap(True)
-        self.name.setGeometry(QRect(QPoint(0, 200), QSize(128, 50)))
+        self.name.setGeometry(QRect(QPoint(0, 200), QSize(128, 35)))
         self.name.setAlignment(Qt.AlignHCenter)
+        self.author.setParent(self.card)
+        self.author.setWordWrap(True)
+        self.author.setGeometry(QRect(QPoint(0, 252), QSize(128, 20)))
+        self.author.setAlignment(Qt.AlignHCenter)
 
     def call_update_image(self, image):
         self.image.setPixmap(image)
-
-    def call_update_book_image(self, image):
-        self.p.ui.image.setPixmap(image)
 
 
 class myThread(QThread):
     update_image = Signal(QPixmap)
 
-    def __init__(self, url: str, parent=None):
+    def __init__(self, path: str,scale:tuple,parent=None):
         super(myThread, self).__init__(parent)
-        self.url = url
-
+        self.path = path
+        self.scale= scale
+        
     def run(self):
-        data = requests.get(self.url).content
+        data = requests.get(self.path).content
         image = QImage()
         image.loadFromData(data)
-        self.update_image.emit(QPixmap(image).scaled(128, 193, Qt.KeepAspectRatio))
-
-
-class myThread2(QThread):
-    update_image = Signal(QPixmap)
-
-    def __init__(self, url: str, parent=None):
-        super(myThread2, self).__init__(parent)
-        self.url = url
-
-    def run(self):
-        try :
-            data = requests.get(self.url).content
-            image = QImage()
-            image.loadFromData(data)
-            self.update_image.emit(QPixmap(image).scaled(250, 321, Qt.KeepAspectRatio))
-        except :
-            print(self.url)
+        self.update_image.emit(QPixmap(image).scaled(
+            self.scale[0], self.scale[1], Qt.KeepAspectRatio))
 
 
 if __name__ == '__main__':
