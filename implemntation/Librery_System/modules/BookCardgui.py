@@ -11,7 +11,7 @@ class Card(QWidget):
     def __init__(self, data, parent):
         super().__init__()
         name, author, image_path = data['title'], data[
-            'GROUP_CONCAT(author_book.name)'], data['image']
+            'authors'], data['image']
         self.card = QFrame(self)
         self.image = QLabel()
         self.name = QLabel(name)

@@ -19,12 +19,13 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(1007, 700)
-        MainWindow.setMinimumSize(QSize(45, 700))
+        MainWindow.setMinimumSize(QSize(1007, 700))
+        MainWindow.setMaximumSize(QSize(16777215, 700))
         MainWindow.setStyleSheet(u"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"\n"
-"QFrame>QPushButton{\n"
+"QFrame[objectName~=\"frame_menus\"]>QPushButton{\n"
 "    background-position:  left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
@@ -285,6 +286,96 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.wishlist_btn)
 
+        self.add_user_btn = QPushButton(self.frame_menus)
+        self.add_user_btn.setObjectName(u"add_user_btn")
+        self.add_user_btn.setMinimumSize(QSize(0, 45))
+        palette4 = QPalette()
+        palette4.setBrush(QPalette.Active, QPalette.WindowText, brush)
+        palette4.setBrush(QPalette.Active, QPalette.Button, brush1)
+        palette4.setBrush(QPalette.Active, QPalette.Text, brush)
+        palette4.setBrush(QPalette.Active, QPalette.ButtonText, brush)
+        palette4.setBrush(QPalette.Active, QPalette.Base, brush1)
+        palette4.setBrush(QPalette.Active, QPalette.Window, brush1)
+        brush14 = QBrush(QColor(255, 255, 255, 128))
+        brush14.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette4.setBrush(QPalette.Active, QPalette.PlaceholderText, brush14)
+#endif
+        palette4.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
+        palette4.setBrush(QPalette.Inactive, QPalette.Button, brush1)
+        palette4.setBrush(QPalette.Inactive, QPalette.Text, brush)
+        palette4.setBrush(QPalette.Inactive, QPalette.ButtonText, brush)
+        palette4.setBrush(QPalette.Inactive, QPalette.Base, brush1)
+        palette4.setBrush(QPalette.Inactive, QPalette.Window, brush1)
+        brush15 = QBrush(QColor(255, 255, 255, 128))
+        brush15.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette4.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush15)
+#endif
+        palette4.setBrush(QPalette.Disabled, QPalette.WindowText, brush)
+        palette4.setBrush(QPalette.Disabled, QPalette.Button, brush1)
+        palette4.setBrush(QPalette.Disabled, QPalette.Text, brush)
+        palette4.setBrush(QPalette.Disabled, QPalette.ButtonText, brush)
+        palette4.setBrush(QPalette.Disabled, QPalette.Base, brush1)
+        palette4.setBrush(QPalette.Disabled, QPalette.Window, brush1)
+        brush16 = QBrush(QColor(255, 255, 255, 128))
+        brush16.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette4.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush16)
+#endif
+        self.add_user_btn.setPalette(palette4)
+        self.add_user_btn.setStyleSheet(u"background-image: url(:/icons/icons/icons8-add-user-male-24.png);")
+        self.add_user_btn.setCheckable(False)
+        self.add_user_btn.setAutoDefault(False)
+        self.add_user_btn.setFlat(False)
+
+        self.verticalLayout_3.addWidget(self.add_user_btn)
+
+        self.add_book_btn = QPushButton(self.frame_menus)
+        self.add_book_btn.setObjectName(u"add_book_btn")
+        self.add_book_btn.setMinimumSize(QSize(0, 45))
+        palette5 = QPalette()
+        palette5.setBrush(QPalette.Active, QPalette.WindowText, brush)
+        palette5.setBrush(QPalette.Active, QPalette.Button, brush1)
+        palette5.setBrush(QPalette.Active, QPalette.Text, brush)
+        palette5.setBrush(QPalette.Active, QPalette.ButtonText, brush)
+        palette5.setBrush(QPalette.Active, QPalette.Base, brush1)
+        palette5.setBrush(QPalette.Active, QPalette.Window, brush1)
+        brush17 = QBrush(QColor(255, 255, 255, 128))
+        brush17.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette5.setBrush(QPalette.Active, QPalette.PlaceholderText, brush17)
+#endif
+        palette5.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
+        palette5.setBrush(QPalette.Inactive, QPalette.Button, brush1)
+        palette5.setBrush(QPalette.Inactive, QPalette.Text, brush)
+        palette5.setBrush(QPalette.Inactive, QPalette.ButtonText, brush)
+        palette5.setBrush(QPalette.Inactive, QPalette.Base, brush1)
+        palette5.setBrush(QPalette.Inactive, QPalette.Window, brush1)
+        brush18 = QBrush(QColor(255, 255, 255, 128))
+        brush18.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette5.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush18)
+#endif
+        palette5.setBrush(QPalette.Disabled, QPalette.WindowText, brush)
+        palette5.setBrush(QPalette.Disabled, QPalette.Button, brush1)
+        palette5.setBrush(QPalette.Disabled, QPalette.Text, brush)
+        palette5.setBrush(QPalette.Disabled, QPalette.ButtonText, brush)
+        palette5.setBrush(QPalette.Disabled, QPalette.Base, brush1)
+        palette5.setBrush(QPalette.Disabled, QPalette.Window, brush1)
+        brush19 = QBrush(QColor(255, 255, 255, 128))
+        brush19.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette5.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush19)
+#endif
+        self.add_book_btn.setPalette(palette5)
+        self.add_book_btn.setStyleSheet(u"background-image: url(:/icons/icons/icons8-book-24.png);")
+        self.add_book_btn.setCheckable(False)
+        self.add_book_btn.setAutoDefault(False)
+        self.add_book_btn.setFlat(False)
+
+        self.verticalLayout_3.addWidget(self.add_book_btn)
+
 
         self.verticalLayout_2.addWidget(self.frame_menus, 0, Qt.AlignTop)
 
@@ -302,9 +393,17 @@ class Ui_MainWindow(object):
         self.pages_Widget.setMinimumSize(QSize(3, 0))
         self.home_page = QWidget()
         self.home_page.setObjectName(u"home_page")
-        self.searchbar = QFrame(self.home_page)
+        self.verticalLayout_6 = QVBoxLayout(self.home_page)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.frame_2 = QFrame(self.home_page)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setFrameShape(QFrame.NoFrame)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_2 = QHBoxLayout(self.frame_2)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.searchbar = QFrame(self.frame_2)
         self.searchbar.setObjectName(u"searchbar")
-        self.searchbar.setGeometry(QRect(220, 10, 221, 28))
+        self.searchbar.setMinimumSize(QSize(221, 28))
         self.searchbar.setMaximumSize(QSize(221, 28))
         self.searchbar.setStyleSheet(u"background-color:white;\n"
 "border-radius:13px;")
@@ -327,9 +426,36 @@ class Ui_MainWindow(object):
         font.setBold(False)
         font.setWeight(50)
         self.searchtext.setFont(font)
+
+        self.horizontalLayout_2.addWidget(self.searchbar, 0, Qt.AlignHCenter|Qt.AlignTop)
+
+
+        self.verticalLayout_6.addWidget(self.frame_2)
+
+        self.frame_3 = QFrame(self.home_page)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setMinimumSize(QSize(120, 80))
+        self.frame_3.setFrameShape(QFrame.NoFrame)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_4 = QVBoxLayout(self.frame_3)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.label = QLabel(self.frame_3)
+        self.label.setObjectName(u"label")
+        self.label.setMinimumSize(QSize(51, 21))
+        self.label.setMaximumSize(QSize(51, 21))
+        font1 = QFont()
+        font1.setFamily(u"DejaVu Sans Mono")
+        font1.setBold(True)
+        font1.setWeight(75)
+        self.label.setFont(font1)
+
+        self.verticalLayout_4.addWidget(self.label)
+
+
+        self.verticalLayout_6.addWidget(self.frame_3)
+
         self.scrollArea = QScrollArea(self.home_page)
         self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setGeometry(QRect(0, 130, 921, 511))
         self.scrollArea.setFrameShape(QFrame.NoFrame)
         self.scrollArea.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
@@ -337,16 +463,11 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 921, 511))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 911, 486))
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
-        self.label = QLabel(self.home_page)
-        self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(0, 96, 131, 21))
-        font1 = QFont()
-        font1.setFamily(u"DejaVu Sans Mono")
-        font1.setBold(True)
-        font1.setWeight(75)
-        self.label.setFont(font1)
+
+        self.verticalLayout_6.addWidget(self.scrollArea)
+
         self.pages_Widget.addWidget(self.home_page)
         self.search_page = QWidget()
         self.search_page.setObjectName(u"search_page")
@@ -362,9 +483,9 @@ class Ui_MainWindow(object):
 "                 QWidget > QLabel{\n"
 "                     color : rgb(240,240,240);\n"
 "                 }\n"
-"                 QWidget > QPushButton{\n"
+"                 QWidget >QPushButton{\n"
 "                     color : rgb(255,255,255);\n"
-"                    background-color : gb(240,200,240);\n"
+"						background-color: gb(240, 200, 240);\n"
 "                 }")
         self.image = QLabel(self.book_page)
         self.image.setObjectName(u"image")
@@ -415,9 +536,11 @@ class Ui_MainWindow(object):
         self.pick = QPushButton(self.book_page)
         self.pick.setObjectName(u"pick")
         self.pick.setGeometry(QRect(310, 150, 89, 25))
+        self.pick.setStyleSheet(u"background-color: rgb(0, 191, 255);")
         self.reserve = QPushButton(self.book_page)
         self.reserve.setObjectName(u"reserve")
         self.reserve.setGeometry(QRect(420, 150, 89, 25))
+        self.reserve.setStyleSheet(u"background-color: rgb(0, 191, 255);")
         self.label_6 = QLabel(self.book_page)
         self.label_6.setObjectName(u"label_6")
         self.label_6.setGeometry(QRect(40, 10, 201, 31))
@@ -520,6 +643,22 @@ class Ui_MainWindow(object):
 "                 }")
         self.isbn.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.isbn.setWordWrap(True)
+        self.label_12 = QLabel(self.widget)
+        self.label_12.setObjectName(u"label_12")
+        self.label_12.setGeometry(QRect(270, 120, 61, 31))
+        self.label_12.setFont(font4)
+        self.label_12.setStyleSheet(u"QLabel {\n"
+"                     color : rgb(89, 89, 89);\n"
+"                 }")
+        self.geners = QLabel(self.widget)
+        self.geners.setObjectName(u"geners")
+        self.geners.setGeometry(QRect(270, 160, 211, 41))
+        self.geners.setFont(font5)
+        self.geners.setStyleSheet(u"QLabel {\n"
+"                     color : rgb(240,240,240);\n"
+"                 }")
+        self.geners.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.geners.setWordWrap(True)
         self.label_11 = QLabel(self.book_page)
         self.label_11.setObjectName(u"label_11")
         self.label_11.setGeometry(QRect(310, 10, 61, 31))
@@ -528,6 +667,58 @@ class Ui_MainWindow(object):
 "                     color : #C3DDE6;\n"
 "                 }")
         self.pages_Widget.addWidget(self.book_page)
+        self.add_user_page = QWidget()
+        self.add_user_page.setObjectName(u"add_user_page")
+        self.pushButton = QPushButton(self.add_user_page)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(780, 484, 89, 31))
+        self.frame = QFrame(self.add_user_page)
+        self.frame.setObjectName(u"frame")
+        self.frame.setGeometry(QRect(300, 150, 321, 201))
+        self.frame.setMinimumSize(QSize(271, 201))
+        self.frame.setMaximumSize(QSize(16777215, 1111111))
+        self.frame.setStyleSheet(u"QFrame{\n"
+"border-radius:20px;\n"
+"}\n"
+"QLineEdit{\n"
+"background-color: rgb(255, 255, 255);\n"
+"border-radius:12px;\n"
+"}")
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.frame.setLineWidth(1)
+        self.label_2 = QLabel(self.frame)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(30, 20, 71, 21))
+        font8 = QFont()
+        font8.setFamily(u"Ubuntu Condensed")
+        font8.setPointSize(14)
+        self.label_2.setFont(font8)
+        self.label_4 = QLabel(self.frame)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setGeometry(QRect(40, 150, 41, 17))
+        self.label_4.setFont(font8)
+        self.username_feild = QLineEdit(self.frame)
+        self.username_feild.setObjectName(u"username_feild")
+        self.username_feild.setGeometry(QRect(130, 20, 151, 25))
+        self.label_3 = QLabel(self.frame)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setGeometry(QRect(30, 90, 71, 17))
+        self.label_3.setFont(font8)
+        self.password_feild = QLineEdit(self.frame)
+        self.password_feild.setObjectName(u"password_feild")
+        self.password_feild.setGeometry(QRect(130, 90, 151, 25))
+        font9 = QFont()
+        font9.setStrikeOut(False)
+        font9.setKerning(True)
+        self.password_feild.setFont(font9)
+        self.password_feild.setEchoMode(QLineEdit.Password)
+        self.password_feild.setCursorMoveStyle(Qt.LogicalMoveStyle)
+        self.comboBox = QComboBox(self.frame)
+        self.comboBox.setObjectName(u"comboBox")
+        self.comboBox.setGeometry(QRect(130, 150, 141, 25))
+        self.comboBox.setFrame(True)
+        self.pages_Widget.addWidget(self.add_user_page)
 
         self.verticalLayout_5.addWidget(self.pages_Widget)
 
@@ -547,6 +738,8 @@ class Ui_MainWindow(object):
         self.home_btn.setDefault(False)
         self.search_btn.setDefault(False)
         self.wishlist_btn.setDefault(False)
+        self.add_user_btn.setDefault(False)
+        self.add_book_btn.setDefault(False)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -558,6 +751,8 @@ class Ui_MainWindow(object):
         self.home_btn.setText(QCoreApplication.translate("MainWindow", u"Home", None))
         self.search_btn.setText(QCoreApplication.translate("MainWindow", u"Search", None))
         self.wishlist_btn.setText(QCoreApplication.translate("MainWindow", u"My Books", None))
+        self.add_user_btn.setText(QCoreApplication.translate("MainWindow", u"Add User", None))
+        self.add_book_btn.setText(QCoreApplication.translate("MainWindow", u"Add User", None))
         self.searchbtn.setText("")
         self.label.setText(QCoreApplication.translate("MainWindow", u"Books", None))
         self.book_page.setWindowTitle(QCoreApplication.translate("MainWindow", u"Form", None))
@@ -576,6 +771,12 @@ class Ui_MainWindow(object):
         self.date.setText("")
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"ISBN", None))
         self.isbn.setText("")
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Geners", None))
+        self.geners.setText("")
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"Title", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Apply", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Username", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Role", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Password", None))
     # retranslateUi
 
