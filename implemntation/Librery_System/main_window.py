@@ -17,17 +17,17 @@ class MainWindow(QMainWindow):
         self.ui.menu_toggle.clicked.connect(lambda: UIFunctions.toggleMenu(self))
         self.ui.home_btn.clicked.connect(lambda: self.ui.pages_Widget.setCurrentWidget(self.ui.home_page))
         self.ui.search_btn.clicked.connect(lambda: self.ui.pages_Widget.setCurrentWidget(self.ui.search_page))
-        
+    
         self.ui.searchbtn.clicked.connect(lambda:self.book_search(self.ui.searchtext.text()))
         self.ui.add_book_btn.hide()
         self.ui.add_user_btn.hide()
         self.message = myMessage(self,self)
         self.books_grid= FlowLayout(self.ui.scrollAreaWidgetContents)
         self.books_grid.setSpacing(10)
-        self.show_books()
+        self.show_books(500)
         
-    def show_books(self):
-            books= Fetcher.get_books(500)
+    def show_books(self,num="NULL",name=""):
+            books= Fetcher.get_books(num,name)
             for i,book in enumerate(books):
                 self.books_grid.addWidget(Card(book,self))
 
@@ -43,12 +43,13 @@ class MainWindow(QMainWindow):
         self.ui.publisher.setText(data["publisher"])
         self.ui.date.setText(data["publishing_date"])
         self.ui.isbn.setText(data["ISBN"])
+        self.ui.geners.setText(data['categories'])
         self.ui.pages_Widget.setCurrentWidget(
             self.ui.book_page)
     def book_search(self,name:str):
         for i in reversed(range(self.books_grid.count())): 
             self.books_grid.itemAt(i).widget().setParent(None)
-
+        self.show_books(name)
 
     def new_gridlayout(self):
         self.books_grid=QGridLayout()

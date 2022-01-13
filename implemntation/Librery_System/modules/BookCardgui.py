@@ -10,8 +10,7 @@ import sys
 class Card(QWidget):
     def __init__(self, data, parent):
         super().__init__()
-        name, author, image_path = data['title'], data[
-            'authors'], data['image']
+        name, author, image_path = data['title'], data['authors'], data['image']
         self.card = QFrame(self)
         self.image = QLabel()
         self.name = QLabel(name)
@@ -75,7 +74,7 @@ if __name__ == '__main__':
     name = "Lion"
     author = "some lion"
 
-    babylion = {"title":name, 'GROUP_CONCAT(author_book.name)':author, "image":path}
+    babylion = {"title":name, 'authors':author, "image":path}
 
     app = QApplication([])
     card = Card(babylion,None)
