@@ -12,6 +12,7 @@ class UI_Controller:
 
     def success_login(self):
         self.login.close()
+        self.window.show_books()
         self.window.show()
         self.window.message.success("Login Successfully")
 

@@ -8,11 +8,11 @@ from PySide2.QtWidgets import *
 class Card(QWidget):
     def __init__(self, data, parent=None):
         super().__init__()
-        name, image_path = data['title'], data['image']
+        title, image_path = data['title'], data['image']
         self.card = QFrame(self)
 
         self.image = QLabel()  # Image
-        self.name = QLabel(name)  # Title
+        self.name = QLabel(title)  # Title
         image = QPixmap(128, 193)
         image.fill(Qt.GlobalColor.darkGray)
         self.image.setPixmap(QPixmap(128, 193))
@@ -56,7 +56,7 @@ class myThread(QThread):
     def __init__(self, path: str,scale:tuple,parent=None):
         super(myThread, self).__init__(parent)
         self.path = path
-        self.scale= scale
+        self.scale = scale
         
     def run(self):
         data = requests.get(self.path).content
