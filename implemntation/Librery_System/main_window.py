@@ -16,6 +16,7 @@ import re
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
+        self.username = ""
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.menu_toggle.clicked.connect(lambda: UIFunctions.toggleMenu(self))
@@ -28,12 +29,11 @@ class MainWindow(QMainWindow):
         self.message = myMessage(self)
         self.books_grid = FlowLayout(self.ui.scrollAreaWidgetContents)
         self.books_grid.setSpacing(10)
-        self.show_books(500)
-        
-    def show_books(self,num="NULL",name=""):
-            books= Fetcher.get_books(num,name)
-            for i,book in enumerate(books):
-                self.books_grid.addWidget(Card(book,self))
+
+    def show_books(self, num="NULL", name=""):
+        books = get_books(num, name)
+        for i, book in enumerate(books):
+            self.books_grid.addWidget(Card(book, self))
 
     def show_book_info(self, data: dict):
         self.ui.title.setText(data["title"])
@@ -50,26 +50,25 @@ class MainWindow(QMainWindow):
         self.ui.geners.setText(data['categories'])
         self.ui.pages_Widget.setCurrentWidget(
             self.ui.book_page)
-    def book_search(self,name:str):
-        for i in reversed(range(self.books_grid.count())): 
+
+    def book_search(self, name: str):
+        for i in reversed(range(self.books_grid.count())):
             self.books_grid.itemAt(i).widget().setParent(None)
         self.show_books(name)
 
         def pick():
             z = requests.get(
-                "http://20.111.12.142/rente.php?user=" + LoginWindow.username + "&&book=" + data["Id"]).text
+                "http://20.111.12.142/rente.php?user=" + self.username + "&&book=" + self.data["Id"]).text
+            print(z)
             self.message.success(z)
 
         def reserve():
             z = requests.get(
-                "http://20.111.12.142/reserve.php?user=" + LoginWindow.username + "&&book=" + data["Id"]).text
+                "http://20.111.12.142/reserve.php?user=" + self.username + "&&book=" + self.data["Id"]).text
+            print(z)
             self.message.success(z)
 
         self.ui.pick.clicked.connect(lambda z: pick())
         self.ui.reserve.clicked.connect(lambda z: reserve())
         self.ui.pages_Widget.setCurrentWidget(
             self.ui.book_page)
-
-
-
-

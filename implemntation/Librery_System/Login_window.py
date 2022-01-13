@@ -9,16 +9,15 @@ from modules.login_gui import Ui_form
 
 class LoginWindow(QMainWindow, Ui_form):
 
-    username = ""
-
     def __init__(self, controller, parent=None):
         super(LoginWindow, self).__init__(parent)
         self.setupUi(self)
+        self.user = ""
         self.pushButton.clicked.connect(lambda:self.login(controller))
 
-    def login(self,controller) -> None:
+    def login(self, controller) -> None:
         if login(self.username.text(), self.password.text()):
-            self.username = self.username.text()
+            self.user = self.username.text()
             controller.success_login()
         else:
             self.message.error("Login Faild")
