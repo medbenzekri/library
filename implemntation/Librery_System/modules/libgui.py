@@ -12,10 +12,11 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-import modules.resources_rc
+import library.implemntation.Librery_System.modules.resources_rc
+
 
 class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
+    def setupUi(self, MainWindow: QMainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(1007, 700)
@@ -492,8 +493,6 @@ class Ui_MainWindow(object):
         self.image.setGeometry(QRect(30, 60, 250, 321))
         self.image.setStyleSheet(u"")
         self.image.setFrameShape(QFrame.NoFrame)
-        self.image.setPixmap(QPixmap(u":/icons/icons/test.jpg"))
-        self.image.setScaledContents(True)
         self.title = QLabel(self.book_page)
         self.title.setObjectName(u"title")
         self.title.setGeometry(QRect(310, 50, 381, 91))

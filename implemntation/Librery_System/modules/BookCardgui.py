@@ -1,20 +1,20 @@
+import requests
+import sys
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
-import requests
-import sys
-
-# from modules.BookPageGui import BookPage
 
 
 class Card(QWidget):
-    def __init__(self, data, parent):
+    def __init__(self, data, parent=None):
         super().__init__()
-        name, author, image_path = data['title'], data['authors'], data['image']
+        title, image_path = data['title'], data['image']
         self.card = QFrame(self)
-        self.image = QLabel()
-        self.name = QLabel(name)
-        self.author = QLabel(author)
+
+        self.image = QLabel()  # Image
+        self.name = QLabel(title)  # Title
+        image = QPixmap(128, 193)
+        image.fill(Qt.GlobalColor.darkGray)
         self.image.setPixmap(QPixmap(128, 193))
         self.data = data
         self.p = parent
@@ -45,10 +45,6 @@ class Card(QWidget):
         self.name.setWordWrap(True)
         self.name.setGeometry(QRect(QPoint(0, 200), QSize(128, 35)))
         self.name.setAlignment(Qt.AlignHCenter)
-        self.author.setParent(self.card)
-        self.author.setWordWrap(True)
-        self.author.setGeometry(QRect(QPoint(0, 252), QSize(128, 20)))
-        self.author.setAlignment(Qt.AlignHCenter)
 
     def call_update_image(self, image):
         self.image.setPixmap(image)
@@ -60,13 +56,14 @@ class myThread(QThread):
     def __init__(self, path: str,scale:tuple,parent=None):
         super(myThread, self).__init__(parent)
         self.path = path
-        self.scale=scale
+        self.scale = scale
+        
     def run(self):
         data = requests.get(self.path).content
         image = QImage()
         image.loadFromData(data)
         self.update_image.emit(QPixmap(image).scaled(
-            self.scale[0],self.scale[1], Qt.KeepAspectRatio))
+            self.scale[0], self.scale[1], Qt.KeepAspectRatio))
 
 
 if __name__ == '__main__':
@@ -74,8 +71,9 @@ if __name__ == '__main__':
     name = "Lion"
     author = "some lion"
 
-    babylion = {"title":name, 'authors':author, "image":path}
+    babylion = {'title': name, 'authors': author, 'image': path}
 
     app = QApplication([])
-    card = Card(babylion,None)
+    card = Card(babylion)
     sys.exit(app.exec_())
+

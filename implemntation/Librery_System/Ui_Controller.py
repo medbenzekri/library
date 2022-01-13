@@ -1,25 +1,20 @@
 from PySide2.QtWidgets import QApplication
 from Login_window import LoginWindow
 from main_window import MainWindow
-from modules.Authentication import Authenticate
 import sys
+
 
 class UI_Controller:
     def __init__(self) -> None:
-        Authenticate()
-        self.login=LoginWindow(self)
+        self.login = LoginWindow(self)
         self.window = MainWindow()
         self.login.show()
-        
+
     def success_login(self):
         self.login.close()
+        self.window.show_books()
         self.window.show()
         self.window.message.success("Login Successfully")
-
-    
-
-
-
 
 
 if __name__ == "__main__":

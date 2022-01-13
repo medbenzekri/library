@@ -1,23 +1,28 @@
-from modules.Authentication import Authenticate
-from modules.login_gui import Ui_form
-from PySide2.QtWidgets import QMainWindow, QApplication
-from PySide2.QtCore import Qt
-from modules.Authentication import Authenticate
 import sys
+
+from PySide2.QtCore import Qt
+from PySide2.QtWidgets import QMainWindow, QApplication
+
+from modules.Authentication import login
+from modules.login_gui import Ui_form
+
 
 class LoginWindow(QMainWindow, Ui_form):
 
-    def __init__(self,controller,parent = None):
+    username = ""
+
+    def __init__(self, controller, parent=None):
         super(LoginWindow, self).__init__(parent)
         self.setupUi(self)
         self.pushButton.clicked.connect(lambda:self.login(controller))
-        
+
     def login(self,controller) -> None:
-        if Authenticate.login(self.username.text(),self.password.text()):
+        if login(self.username.text(), self.password.text()):
+            self.username = self.username.text()
             controller.success_login()
         else:
-            self.message.error("Login Faild")  
-      
+            self.message.error("Login Faild")
+
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
             self.offset = event.pos()
@@ -33,7 +38,8 @@ class LoginWindow(QMainWindow, Ui_form):
     def mouseReleaseEvent(self, event):
         self.offset = None
         super().mouseReleaseEvent(event)
-        
+
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     myWin = LoginWindow()

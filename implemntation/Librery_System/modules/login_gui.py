@@ -15,7 +15,7 @@ from PySide2.QtWidgets import *
 import ctypes,subprocess,platform
 import subprocess
 
-from modules.Message import myMessage
+from library.implemntation.Librery_System.modules.Message import myMessage
 
 class Ui_form(object):
     def setupUi(self, form : QMainWindow) -> None:
@@ -93,7 +93,7 @@ class Ui_form(object):
         self.label_2.setFont(font2)
         self.label_2.setStyleSheet(u"QLabel{\n""	color: rgb(238, 238, 236);\n""}")
         
-        self.message = myMessage(form,self)
+        self.message = myMessage(form)
         #self.message.setHeigth(50)
         
         self.retranslateUi(form)
